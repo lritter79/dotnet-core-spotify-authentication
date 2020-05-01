@@ -11,8 +11,10 @@ namespace dotnet_core_spotify_authentication.Controllers
 {
     class SpotifyAuthentication
     {
-        public string clientID     = "27adc1ba81634561b6f2b93e581bf3cc";
-        public string clientSecret = "4f885fa66efa4243b9cdfe0f8e33b0de";
+        public string clientID     = "";
+        public string clientSecret = "";
+        //set your redirectUrl to be the same as your callback that you set on the spotify
+        // for developers pages, but for local testing localhost is fine
         public string redirectURL  = "http://localhost:5000/callback";
     }
 
@@ -49,6 +51,7 @@ namespace dotnet_core_spotify_authentication.Controllers
         }
 
         [Route("/callback")]
+        [HttpGet]
         public ContentResult Get(string code)
         {
             string responseString = "";
